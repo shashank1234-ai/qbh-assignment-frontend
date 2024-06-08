@@ -1,0 +1,34 @@
+<div class="card card-body">
+    <h2>{{ userId ? 'Edit User' : 'Add User' }}</h2>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <label for="name">Name:</label>
+      <input class="form-control" id="name" formControlName="name">
+      <div *ngIf="userForm.get('name')?.invalid && (userForm.get('name')?.dirty || userForm.get('name')?.touched)">
+        Name is required
+      </div>
+  
+      <label for="email">Email:</label>
+      <input class="form-control" id="email" formControlName="email">
+      <div *ngIf="userForm.get('email')?.invalid && (userForm.get('email')?.dirty || userForm.get('email')?.touched)">
+        <div *ngIf="userForm.get('email')?.errors">Email is required</div>
+        <div *ngIf="userForm.get('email')?.errors">Invalid email</div>
+      </div>
+  
+      <label for="phone">Phone:</label>
+      <input class="form-control" id="phone" formControlName="phone">
+      <div *ngIf="userForm.get('phone')?.invalid && (userForm.get('phone')?.dirty || userForm.get('phone')?.touched)">
+        Phone is required
+      </div>
+  
+      <label for="address">Address:</label>
+      <input class="form-control" id="address" formControlName="address">
+      <div  *ngIf="userForm.get('address')?.invalid && (userForm.get('address')?.dirty || userForm.get('address')?.touched)">
+        Address is required
+      </div>
+      <div class="btn-container">
+      <button type="submit" class="form-control submit-btn" [disabled]="userForm.invalid">{{ userId ? 'Update' : 'Create' }}</button>
+      <button type="button" class="form-control cancel-btn" routerLink="/">Cancel</button>
+    </div>
+    </form>
+  </div>
+  

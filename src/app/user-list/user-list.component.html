@@ -1,0 +1,42 @@
+<div>
+    <h2>User List</h2>
+    <div style="display: flex;margin: 2%;">
+    <button class="form-control col-lg-6 row btn-download" (click)="generatePDF()">Download PDF</button>
+        <button routerLink="/add" class="form-control col-lg-6 row btn-add-user">Add User</button>
+    </div>
+    <div class="col-xs-3 col-sm-auto">
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Address</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td scope="row">{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.address }}</td>
+          <td>
+            <a [routerLink]="['/edit', user.id]" style="cursor: pointer;"><img src="../../assets/icons/edit.png"/></a>
+            <a (click)="deleteUser(number(user.id))" > <img src="../../assets/icons/delete.png"></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- <div>
+    <button routerLink="/add" class="form-control col-lg-6 row" style="background: rgb(78, 78, 254);color: white;">Add User</button>
+</div> -->
+  </div>
+
+<!-- <app-pdf-view [pdfSrc]="pdfurl"></app-pdf-view>  -->
+<div >
+<pdf-viewer  [src]="pdfSrc"
+[render-text]="true"
+[original-size]="false"></pdf-viewer>
+</div>

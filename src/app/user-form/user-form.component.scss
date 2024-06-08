@@ -1,0 +1,29 @@
+.submit-btn{
+    width: max-content;
+    margin-right: 5%;
+    background: #7575f5;
+    color: white;
+}
+
+.btn-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+
+.submit-btn:hover{
+    background: white;
+    color: #7575f5;
+    border: 1px solid #7575f5;
+}
+.cancel-btn{
+    width: max-content;
+    background: #f65a5a;
+    color: #fff
+}
+
+.cancel-btn:hover{
+    background: white;
+    color: #f65a5a;
+    border: 1px solid #f65a5a;
+}
